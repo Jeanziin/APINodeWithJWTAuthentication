@@ -44,21 +44,36 @@ const getEvent = async (req, res) => {
     const eventId = req.params.id;
   
     try {
-      if (!eventId) {
-        return res.status(400).json({ message: 'Event ID must be provided.' });
+        if (!eventId) {
+          return res.status(400).json({ message: 'Event ID must be provided.' });
+        }
+    
+        // Verificar se o ID é um formato válido
+        if (!isValidId(eventId)) {
+          return res.status(400).json({ message: 'Invalid Event ID.' });
+        }
+    
+        const event = await Event.findOne({ _id: eventId });
+    
+        if (!event) {
+          return res.status(404).json({ message: 'Event not found.' });
+        }
+    
+        res.status(200).json(event);
+      } catch (error) {
+        res.status(500).json({ message: error });
       }
+    };
+    
+    const isValidId = (id) => {
+      const isValidObjectId = /^[0-9a-fA-F]{24}$/.test(id);
+      return isValidObjectId;
+    };
+    
   
-      const event = await Event.findOne({ _id: eventId });
-  
-      if (!event) {
-        return res.status(404).json({ message: 'Event not found.' });
-      }
-  
-      res.status(200).json(event);
-    } catch (error) {
-      res.status(500).json({ message: error });
-    }
-  };
+const UpdateEvent = async (req, res) => {
+    // ...
+};
 
 module.exports = {
   createEvent,
