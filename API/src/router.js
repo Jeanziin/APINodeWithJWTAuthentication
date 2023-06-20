@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const checkToken = require('./middlewares/checkToken');
 
-const registerUserController = require('./controllers/registerUserController');
-const publicRouteController = require('./controllers/publicRouteController');
-const loginUserController = require('./controllers/loginUserController');
-const privateRouteController = require('./controllers/privateRouteController');
+const registerUserController = require('./controllers/User/registerUserController');
+const publicRouteController = require('./controllers/User/publicRouteController');
+const loginUserController = require('./controllers/User/loginUserController');
+const privateRouteController = require('./controllers/User/privateRouteController');
 
 router.get('/', publicRouteController.getPublicRoute);
 router.post('/auth/register', registerUserController.registerUser);
