@@ -42,7 +42,7 @@ const Project = mongoose.model('project',{
     type: String,
     required: true
   },
-  class: {
+  classmodel: {
     type: String,
     required: true
   },
@@ -64,7 +64,7 @@ const Project = mongoose.model('project',{
   },
  
 });
-
+// course, class, period, discipline, teacher, student
 module.exports = {
   Event,
   Project

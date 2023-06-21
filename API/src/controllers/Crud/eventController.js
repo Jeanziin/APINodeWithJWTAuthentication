@@ -72,12 +72,57 @@ const getEvent = async (req, res) => {
     };
     
   
-const UpdateEvent = async (req, res) => {
-    // ...
-};
+const UpdateEventbyId = async (req, res) => {
+    const updateId = req.params.id;
+    const { area, title, authors, type, teacher, startDate, email, pdf } = req.body;
+
+    const updateEvent = {
+      area,
+      title,
+      authors,
+      type,
+      teacher,
+      startDate,
+      email,
+      pdf,
+    };
+    
+
+    try {
+
+      const update = await Event.updateOne({ _id: updateId }, updateEvent);
+      
+      res.status(200).json(update)
+
+    }catch(error){
+      res.status(500).json({error: error});
+    
+    }
+}
+
+    const deleteEvent = async (req, res) => {
+      try {
+        const deleteId = req.params.id;
+    
+        const data = await Event.deleteOne({ _id: deleteId });
+    
+        if (!data.deletedCount) {
+          return res.status(404).json({ message: 'user not found' });
+        }
+    
+        res.status(200).json({ message: 'deleted user!' });
+      } catch (error) {
+        res.status(500).json({ error: error.message });
+      }
+    };
+    
+
+
 
 module.exports = {
   createEvent,
   getEvent,
-  getEventById
+  getEventById,
+  UpdateEventbyId,
+  deleteEvent
 };
