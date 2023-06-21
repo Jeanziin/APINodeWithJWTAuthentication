@@ -1,12 +1,10 @@
-require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const app = express();
 const router = require('./router');
+const morgan = require('morgan');
 
 app.use(express.json());
 app.use(router);
+app.use(morgan('dev'));
 
 module.exports = app;

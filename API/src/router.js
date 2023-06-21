@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const multerConfig = require('./config/multer');
+
 const checkToken = require('./middlewares/checkToken');
 
 const registerUserController = require('./controllers/User/registerUserController');
@@ -9,6 +12,7 @@ const privateRouteController = require('./controllers/User/privateRouteControlle
 const updateUserController = require('./controllers/User/UpdateUserController');
 const eventController = require('./controllers/Crud/eventController');
 const projectController = require('./controllers/Crud/projectController');
+const uploadFileController = require('./controllers/Upload/UploadFileController');
 
 // Router users
 router.get('/', publicRouteController.getPublicRoute);
@@ -21,17 +25,19 @@ router.put('/user/:id/password', checkToken, updateUserController.updatePassword
 
 // Router Event
 router.post('/event', eventController.createEvent);
-router.get('/event', eventController.getEvent);
+router.get('/event', eventController.getEvents);
 router.get('/event/:id', eventController.getEventById);
-router.patch('/event/:id', eventController.UpdateEventbyId);
+router.patch('/event/:id', eventController.updateEventById);
 router.delete('/event/:id', eventController.deleteEvent);
 
 //Router Project
 router.post('/project', projectController.createProject);
-router.get('/project', projectController.getProject);
+router.get('/project', projectController.getProjects);
 router.get('/project/:id', projectController.getProjectById);
-router.patch('/project/:id', projectController.UpdateProjectbyId);
+router.patch('/project/:id', projectController.updateProjectById);
 router.delete('/project/:id', projectController.deleteProject);
 
+//Upload 
+router.post('/upload', multer(multerConfig).single('file'),  uploadFileController.uploadFileController);
 
 module.exports = router;

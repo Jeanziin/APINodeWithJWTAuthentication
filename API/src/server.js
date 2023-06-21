@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const connection = require('./models/connection');
 const app = require('./app');
 

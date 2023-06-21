@@ -2,11 +2,11 @@ const User = require('../../models/User');
 const bcrypt = require('bcrypt');
 
 const registerUser = async (req, res) => {
-  const { name, email, password, confirmPassword } = req.body;
+  const { name, email, password, confirmPassword, cargo, telefone } = req.body;
 
   try {
     // Verificar se todos os campos obrigatórios estão presentes
-    if (!name || !email || !password || !confirmPassword) {
+    if (!name || !email || !password || !confirmPassword || !cargo || !telefone) {
       return res.status(422).json({ message: 'All fields are required!' });
     }
 
@@ -39,6 +39,8 @@ const registerUser = async (req, res) => {
     const user = new User({
       name,
       email,
+      cargo,
+      telefone,
       password: hashedPassword,
     });
 

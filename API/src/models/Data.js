@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const User = require('./User');
 
-const Event = mongoose.model('event', {
+const EventSchema = new mongoose.Schema({
   area: {
     type: String,
     required: true
@@ -29,15 +30,18 @@ const Event = mongoose.model('event', {
     type: String,
     required: true
   },
-
   pdf: {
     type: String,
     required: false
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    require: true
   }
-
 });
 
-const Project = mongoose.model('project',{
+const ProjectSchema = new mongoose.Schema({
   course: {
     type: String,
     required: true
@@ -50,6 +54,11 @@ const Project = mongoose.model('project',{
     type: String,
     required: true
   },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    require: true
+  },
   discipline: {
     type: String,
     required: true
@@ -61,10 +70,12 @@ const Project = mongoose.model('project',{
   student: {
     type: String,
     required: true
-  },
- 
+  }
 });
-// course, class, period, discipline, teacher, student
+
+const Event = mongoose.model('Event', EventSchema);
+const Project = mongoose.model('Project', ProjectSchema);
+
 module.exports = {
   Event,
   Project
