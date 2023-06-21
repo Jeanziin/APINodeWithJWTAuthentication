@@ -43,6 +43,7 @@ const getEvent = async (req, res) => {
   const getEventById = async (req, res) => {
     const eventId = req.params.id;
   
+    
     try {
         if (!eventId) {
           return res.status(400).json({ message: 'Event ID must be provided.' });
