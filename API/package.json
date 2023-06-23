@@ -17,12 +17,12 @@
   "engines": {
     "node": "18"
   },
-  
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "build": "npm ci && npm run build-assets",
+    "build-assets": "echo \"Add build script here\""
   },
   "keywords": [],
   "author": "",
