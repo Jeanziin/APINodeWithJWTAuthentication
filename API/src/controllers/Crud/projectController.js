@@ -36,7 +36,7 @@ const createProject = async (req, res) => {
 
 const getProjects = async (req, res) => {
   try {
-    const projects = await Project.find();
+    const projects = await Project.find().populate('user');
 
     if (projects.length === 0) {
       return res.status(404).json({ message: 'No projects found.' });

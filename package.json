@@ -19,8 +19,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon API/src/server.js",
-    "start": "node API/src/server.js",
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
     "build": "npm ci && npm run build-assets",
     "build-assets": "echo \"Add build script here\""
   },
