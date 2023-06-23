@@ -1,5 +1,5 @@
-const connection = require('./models/connection');
-const app = require('./app');
+const connection = require('./src/models/connection');
+const app = require('./src/app');
 
 
 const PORT = 3333
