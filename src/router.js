@@ -24,14 +24,14 @@ router.put('/user/:id/email', checkToken, updateUserController.updateEmailUser);
 router.put('/user/:id/password', checkToken, updateUserController.updatePasswordUser);
 
 // Router Event
-router.post('/event', eventController.createEvent);
+router.post('/event', multer(multerConfig).single('file'), eventController.createEvent);
 router.get('/event', eventController.getEvents);
 router.get('/event/:id', eventController.getEventById);
 router.patch('/event/:id', eventController.updateEventById);
 router.delete('/event/:id', eventController.deleteEvent);
 
 //Router Project
-router.post('/project', projectController.createProject);
+router.post('/project', multer(multerConfig).single('file'), projectController.createProject);
 router.get('/project', projectController.getProjects);
 router.get('/project/:id', projectController.getProjectById);
 router.patch('/project/:id', projectController.updateProjectById);

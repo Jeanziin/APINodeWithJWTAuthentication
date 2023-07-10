@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const User = require('./User');
 
 const EventSchema = new mongoose.Schema({
-  area: {
+  local: {
     type: String,
     required: true
   },
@@ -10,7 +10,7 @@ const EventSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  authors: {
+  hour: {
     type: String,
     required: true
   },
@@ -18,7 +18,7 @@ const EventSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  teacher: {
+  descricao: {
     type: String,
     required: true
   },
@@ -26,51 +26,95 @@ const EventSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
-  email: {
-    type: String,
-    required: true
-  },
-  pdf: {
-    type: String,
-    required: false
+  src: {
+    name: {
+      type: String,
+      required: true
+    },
+    size: {
+      type: Number,
+      required: true
+    },
+    key: {
+      type: String,
+      required: true
+    },
+    url: {
+      type: String,
+      default: ""
+    }
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    require: true
+    required: true
   }
 });
 
 const ProjectSchema = new mongoose.Schema({
-  course: {
+  title: {
     type: String,
     required: true
   },
-  classmodel: {
+  area: {
     type: String,
     required: true
   },
-  period: {
+  classProject: {
+    type: String,
+    required: true
+  },
+  shift: {
+    type: String,
+    required: true
+  },
+  type: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: String,
+    required: true
+  },
+  linkEvent: {
+    type: String,
+    required: true
+  },
+  supervisor: {
+    type: String,
+    required: true
+  },
+  groupLeaderEmail: {
+    type: String,
+    required: true
+  },
+  authors: {
     type: String,
     required: true
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    require: true
-  },
-  discipline: {
-    type: String,
     required: true
   },
-  teacher: {
-    type: String,
-    required: true
+  src: {
+    name: {
+      type: String,
+      required: true
+    },
+    size: {
+      type: Number,
+      required: true
+    },
+    key: {
+      type: String,
+      required: true
+    },
+    url: {
+      type: String,
+      default: ""
+    }
   },
-  student: {
-    type: String,
-    required: true
-  }
 });
 
 const Event = mongoose.model('Event', EventSchema);

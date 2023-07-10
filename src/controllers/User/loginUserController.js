@@ -30,7 +30,9 @@ const loginUser = async (req, res) => {
 
     const token = jwt.sign({ id: user._id }, secret);
 
-    res.status(200).json({ message: 'Authentication performed successfully!', token });
+    const usuario = await User.findOne({email: email});
+
+    res.status(200).json({ message: 'Authentication performed successfully!', token, usuario });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'An error occurred on the server!' });
