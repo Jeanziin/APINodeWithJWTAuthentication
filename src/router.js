@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer');
 const multerConfig = require('./config/multer');
 
+//Token
 const checkToken = require('./middlewares/checkToken');
 
 const registerUserController = require('./controllers/User/registerUserController');
@@ -23,7 +24,7 @@ router.put('/user/:userId', multer(multerConfig).single('file'), updateUserContr
 router.put('/user/:id/name', checkToken, updateUserController.updateNameUser);
 router.put('/user/:id/email', checkToken, updateUserController.updateEmailUser);
 router.put('/user/:id/password', checkToken, updateUserController.updatePasswordUser);
-router.get('/professores', registerUserController.findUsersWithNoAuth)
+router.get('/professores', registerUserController.findUsersWithNoAuth);
 
 // Router Event
 router.post('/event', multer(multerConfig).fields([{ name: 'src', maxCount: 8 }, { name: 'video', maxCount: 8 }]), eventController.createEvent);
