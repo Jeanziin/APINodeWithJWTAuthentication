@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 const UploadFile = require('./UploadFile');
 
@@ -14,9 +15,27 @@ const UserSchema = new mongoose.Schema({
   record: String,
   graduation: String,
   LevelofEducation: String,
+  authStudent: {
+    type: Boolean,
+    default: false,
+  },
   file: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'UploadFile',
+    name: {
+      type: String,
+      required: true
+    },
+    size: {
+      type: Number,
+      required: true
+    },
+    key: {
+      type: String,
+      required: true
+    },
+    url: {
+      type: String,
+      default: ""
+    }
   },
 });
 

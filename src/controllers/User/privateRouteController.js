@@ -7,7 +7,7 @@ const privateRoute = async (req, res) => {
 
   try {
     // Verificar se o usuário existe
-    const user = await User.findById(id);
+    const user = await User.findById(id).select('-password');
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
