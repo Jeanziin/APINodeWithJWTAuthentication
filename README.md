@@ -8,7 +8,7 @@ Esta é uma aplicação back-end desenvolvida para criar soluções inovadoras p
 
 ## Dependências
 - `bcrypt`: Versão 5.1.0
-  - Biblioteca para criptografar senhas e dados sensíveis de forma segura.
+  - Biblioteca para criptograafar senhas e dados sensíveis de forma segura.
 - `cors`: Versão 2.8.5
   - Permite a configuração de CORS (Cross-Origin Resource Sharing) para lidar com solicitações HTTP de origens diferentes.
 - `dotenv`: Versão 16.3.1
@@ -43,8 +43,6 @@ Esta é uma aplicação back-end desenvolvida para criar soluções inovadoras p
 ISC
 
 Este projeto possui uma licença ISC, o que permite que você use, copie, modifique, una, publique, distribua, sublicencie e/ou venda cópias do software, sob certas condições. Para mais detalhes, consulte o arquivo `LICENSE` incluído neste projeto.
-
-## Rotas/APIs
 
 ## Rotas/APIs
 
@@ -83,10 +81,20 @@ Este projeto possui uma licença ISC, o que permite que você use, copie, modifi
 - Controlador: `updateUserController.updatePasswordUser`
 - Descrição: Rota privada para atualizar a senha do usuário identificado pelo parâmetro `:id`. A autenticação é obrigatória.
 
+### `/user/:userId`
+- Método: PUT
+- Controlador: `updateUserController.updateUser`
+- Descrição: Rota para atualizar os dados do usuário identificado pelo parâmetro `:userId`. Esta rota permite a atualização de informações do usuário, incluindo o upload de uma imagem de perfil.
+
+### `/professores`
+- Método: GET
+- Controlador: `registerUserController.findUsersWithNoAuth`
+- Descrição: Rota para obter uma lista de usuários registrados no sistema que ainda não possuem autenticação.
+
 ### `/event`
 - Método: POST
 - Controlador: `eventController.createEvent`
-- Descrição: Rota para criar um novo evento. Os dados do evento devem ser enviados no corpo da solicitação. A autenticação é obrigatória.
+- Descrição: Rota para criar um novo evento. Os dados do evento devem ser enviados no corpo da solicitação. A autenticação é obrigatória. Esta rota também permite o upload de até 8 imagens (`src`) e até 8 vídeos (`video`).
 
 ### `/event`
 - Método: GET
@@ -98,10 +106,22 @@ Este projeto possui uma licença ISC, o que permite que você use, copie, modifi
 - Controlador: `eventController.getEventById`
 - Descrição: Rota para obter informações de um evento específico identificado pelo parâmetro `:id`. A autenticação é obrigatória.
 
+### `/event/user/:user_id`
+- Método: GET
+- Controlador: `eventController.getEventByUserId`
+- Descrição: Rota para obter todos os eventos associados a um usuário específico identificado pelo parâmetro `:user_id`. A autenticação é obrigatória.
+
 ### `/event/:id`
 - Método: PATCH
 - Controlador: `eventController.updateEventById`
 - Descrição: Rota para atualizar as informações de um evento específico identificado pelo parâmetro `:id`. A autenticação é obrigatória.
+
+### `/event/:event_id`
+- Método: PUT
+- Controlador: `eventController.updateEvent`
+- Descri
+
+ção: Rota para atualizar as informações de um evento específico identificado pelo parâmetro `:event_id`. Esta rota permite o upload de até 8 imagens (`src`) e até 8 vídeos (`video`). A autenticação é obrigatória.
 
 ### `/event/:id`
 - Método: DELETE
@@ -111,14 +131,24 @@ Este projeto possui uma licença ISC, o que permite que você use, copie, modifi
 ### `/project`
 - Método: POST
 - Controlador: `projectController.createProject`
-- Descrição: Rota para criar um novo projeto. Os dados do projeto devem ser enviados no corpo da solicitação.
+- Descrição: Rota para criar um novo projeto. Os dados do projeto devem ser enviados no corpo da solicitação. O upload de um arquivo é opcional nesta rota, mas caso seja enviado, a autenticação é obrigatória.
+
+### `/project/:project_id`
+- Método: PUT
+- Controlador: `projectController.updateProject`
+- Descrição: Rota para atualizar as informações de um projeto específico identificado pelo parâmetro `:project_id`. O upload de um arquivo é opcional nesta rota, mas caso seja enviado, a autenticação é obrigatória.
 
 ### `/project`
 - Método: GET
 - Controlador: `projectController.getProjects`
 - Descrição: Rota para obter todos os projetos cadastrados na aplicação.
 
-### `/project/:id`
+### `/project/:user_id`
+- Método: GET
+- Controlador: `projectController.getProjectsByUserId`
+- Descrição: Rota para obter todos os projetos associados a um usuário específico identificado pelo parâmetro `:user_id`.
+
+### `/project/this/:id`
 - Método: GET
 - Controlador: `projectController.getProjectById`
 - Descrição: Rota para obter informações de um projeto específico identificado pelo parâmetro `:id`.
