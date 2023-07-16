@@ -46,8 +46,6 @@ Este projeto possui uma licença ISC, o que permite que você use, copie, modifi
 
 ## Rotas/APIs
 
-Claro, removi a menção ao JWT na seção do tópico Project. Aqui está a versão atualizada:
-
 ## Rotas/APIs
 
 ### `/`
