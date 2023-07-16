@@ -46,6 +46,10 @@ Este projeto possui uma licença ISC, o que permite que você use, copie, modifi
 
 ## Rotas/APIs
 
+Claro, removi a menção ao JWT na seção do tópico Project. Aqui está a versão atualizada:
+
+## Rotas/APIs
+
 ### `/`
 - Método: GET
 - Controlador: `publicRouteController.getPublicRoute`
@@ -59,79 +63,82 @@ Este projeto possui uma licença ISC, o que permite que você use, copie, modifi
 ### `/auth/login`
 - Método: POST
 - Controlador: `loginUserController.loginUser`
-- Descrição: Rota para autenticar um usuário na aplicação. Os dados de login devem ser enviados no corpo da solicitação. O controlador retornará um token JWT para autenticação posterior.
+- Descrição: Rota para autenticar um usuário na aplicação. Os dados de login devem ser enviados no corpo da solicitação.
 
 ### `/user/:id`
 - Método: GET
 - Controlador: `privateRouteController.privateRoute`
-- Descrição: Rota privada que retorna informações do usuário identificado pelo parâmetro `:id`. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação para acessar esta rota.
+- Descrição: Rota privada que retorna informações do usuário identificado pelo parâmetro `:id`. A autenticação é obrigatória.
 
 ### `/user/:id/name`
 - Método: PUT
 - Controlador: `updateUserController.updateNameUser`
-- Descrição: Rota privada para atualizar o nome do usuário identificado pelo parâmetro `:id`. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação.
+- Descrição: Rota privada para atualizar o nome do usuário identificado pelo parâmetro `:id`. A autenticação é obrigatória.
 
 ### `/user/:id/email`
 - Método: PUT
 - Controlador: `updateUserController.updateEmailUser`
-- Descrição: Rota privada para atualizar o e-mail do usuário identificado pelo parâmetro `:id`. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação.
+- Descrição: Rota privada para atualizar o e-mail do usuário identificado pelo parâmetro `:id`. A autenticação é obrigatória.
 
 ### `/user/:id/password`
 - Método: PUT
 - Controlador: `updateUserController.updatePasswordUser`
-- Descrição: Rota privada para atualizar a senha do usuário identificado pelo parâmetro `:id`. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação.
+- Descrição: Rota privada para atualizar a senha do usuário identificado pelo parâmetro `:id`. A autenticação é obrigatória.
 
 ### `/event`
 - Método: POST
 - Controlador: `eventController.createEvent`
-- Descrição: Rota para criar um novo evento. Os dados do evento devem ser enviados no corpo da solicitação. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação.
+- Descrição: Rota para criar um novo evento. Os dados do evento devem ser enviados no corpo da solicitação. A autenticação é obrigatória.
 
 ### `/event`
 - Método: GET
 - Controlador: `eventController.getEvents`
-- Descrição: Rota para obter todos os eventos cadastrados na aplicação. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação.
+- Descrição: Rota para obter todos os eventos cadastrados na aplicação. A autenticação é obrigatória.
 
 ### `/event/:id`
 - Método: GET
 - Controlador: `eventController.getEventById`
-- Descrição: Rota para obter informações de um evento específico identificado pelo parâmetro `:id`. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação.
+- Descrição: Rota para obter informações de um evento específico identificado pelo parâmetro `:id`. A autenticação é obrigatória.
 
 ### `/event/:id`
 - Método: PATCH
 - Controlador: `eventController.updateEventById`
-- Descrição: Rota para atualizar as informações de um evento específico identificado pelo parâmetro `:id`. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação.
+- Descrição: Rota para atualizar as informações de um evento específico identificado pelo parâmetro `:id`. A autenticação é obrigatória.
 
 ### `/event/:id`
 - Método: DELETE
 - Controlador: `eventController.deleteEvent`
-- Descrição: Rota para excluir um evento específico identificado pelo parâmetro `:id`. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação.
+- Descrição: Rota para excluir um evento específico identificado pelo parâmetro `:id`. A autenticação é obrigatória.
 
 ### `/project`
 - Método: POST
 - Controlador: `projectController.createProject`
-- Descrição: Rota para criar um
-
- novo projeto. Os dados do projeto devem ser enviados no corpo da solicitação. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação.
+- Descrição: Rota para criar um novo projeto. Os dados do projeto devem ser enviados no corpo da solicitação.
 
 ### `/project`
 - Método: GET
 - Controlador: `projectController.getProjects`
-- Descrição: Rota para obter todos os projetos cadastrados na aplicação. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação.
+- Descrição: Rota para obter todos os projetos cadastrados na aplicação.
 
 ### `/project/:id`
 - Método: GET
 - Controlador: `projectController.getProjectById`
-- Descrição: Rota para obter informações de um projeto específico identificado pelo parâmetro `:id`. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação.
+- Descrição: Rota para obter informações de um projeto específico identificado pelo parâmetro `:id`.
 
 ### `/project/:id`
 - Método: PATCH
 - Controlador: `projectController.updateProjectById`
-- Descrição: Rota para atualizar as informações de um projeto específico identificado pelo parâmetro `:id`. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação.
+- Descrição: Rota para atualizar as informações de um projeto específico identificado pelo parâmetro `:id`.
 
 ### `/project/:id`
 - Método: DELETE
 - Controlador: `projectController.deleteProject`
-- Descrição: Rota para excluir um projeto específico identificado pelo parâmetro `:id`. A autenticação é obrigatória, e o token JWT deve ser enviado no cabeçalho da solicitação.
+- Descrição: Rota para excluir um projeto específico identificado pelo parâmetro `:id`.
+
+### `/upload`
+- Método: POST
+- Controlador: `uploadFileController.uploadFileController`
+- Descrição: Rota para realizar o upload de um arquivo. Essa rota utiliza o middleware `multer` para lidar com o upload do arquivo, e o parâmetro `file` especifica o nome do campo no qual o arquivo será enviado. A autenticação pode ser obrigatória dependendo dos requisitos da aplicação. O arquivo enviado será armazenado de acordo com as configurações do `multerConfig`.
 
 ## Observação
 Certifique-se de que possui as dependências listadas acima instaladas e que os scripts estão configurados corretamente antes de executar o projeto. Para instalar as dependências, utilize o comando `npm install` no diretório do projeto.
